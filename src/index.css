@@ -1,15 +1,20 @@
 html {
   font-size: 62.5%;
+  font-weight: 100;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family:
-    Eurostile, Klee, "Helvetica Neue", Helvetica,
+    "Helvetica Neue", Helvetica,
     "Toppan Bunkyu Gothic", "Hiragino Sans GB", "PingFang TC",
     "Calibri", "Heiti TC",
     "WenQuanYi Micro Hei", "Microsoft JhengHei", "Microsoft YaHei",
     Sans-Serif;
   font-size: 1.6rem;
+}
+
+.serif {
+  font-family: "Hoefler Text", "Rockwell", "Big Caslon", "Palatino", serif;
 }
