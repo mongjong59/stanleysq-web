@@ -1,11 +1,16 @@
 import React from "react"
 import data from "../data"
 import Item from "./Item"
-import "./ItemContainer.css"
 
-const ItemContainer = () => (
+const ItemContainer = ({ currentProjectId }) => (
   <div className="item-container">
-    {data.map(project => <Item key={project.id} {...{ ...project }} />)}
+    {
+      data.map(project =>
+        currentProjectId !== project.id
+          ? <Item key={project.id} {...{ ...project }} />
+          : null
+      )
+    }
   </div>
 )
 

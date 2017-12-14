@@ -9,6 +9,8 @@ node_modules
 # production
 /build
 
+/public/images/archive
+
 # misc
 .DS_Store
 .env.local
