@@ -1,23 +1,27 @@
 {
   "name": "stanleysq.github.io",
-  "homepage" : "https://stanleysq.github.io/",
+  "homepage": "https://stanleysq.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "font-awesome": "^4.7.0",
     "gh-pages": "^1.0.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-fontawesome": "^1.6.1",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.12",
-    "react-transition-group": "^2.2.0"
+    "react-scripts": "1.1.0",
+    "react-transition-group": "^2.2.0",
+    "renamer": "^0.6.1"
   },
   "scripts": {
     "predeploy": "npm run build",
+    "build-rename": "npm run build-rename-js && npm run build-rename-css",
+    "build-rename-js": "renamer --regex --find 'main\\.[^\\.]+\\.js' --replace 'main.js' build/static/js/*.js",
+    "build-rename-css": "renamer --regex --find 'main\\.[^\\.]+\\.css' --replace 'main.css' build/static/css/*.css",
     "deploy": "gh-pages -d build -r https://github.com/stanleysq/stanleysq.github.io.git -b master",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run build-rename",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
