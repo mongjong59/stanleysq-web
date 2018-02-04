@@ -4,34 +4,145 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Stanley Sun's Personal Website</title>
+    <title>Stanley Sun</title>
+    <!--[if gte IE 9]><!-->
+      <style>
+        html { font-size: 62.5%; }
+        body { font-size: 1.6rem; }
+      </style>
+    <!--<![endif]-->
+    <style>
+      }
+
+      }
+
+    </style>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Optima", "Calibri", "Futura", "Gill Sans", "Lucida Grande",
+          "Helvetica Neue", "Candara", "Trebuchet MS", "Franklin Gothic Medium",
+          Sans-Serif;
+      }
+
+      .serif {
+        font-family: "Hoefler Text", "Times New Roman", "Times", "Big Caslon", "Palatino", serif;
+      }
+
+      html, body, #root {
+        height: 100%;
+      }
+
+      a, a:visited {
+        color: inherit;
+      }
+
+      img {
+        border-width: 0;
+        width: auto;
+        height: auto;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .transparent {
+        opacity: 0;
+      }
+
+      #root {
+        transition: opacity 0.8s;
+      }
+
+      #ie-warning, #loading {
+        font-family: "Palatino Linotype", Times, serif;
+        height: 100%;
+        width: 100%;
+        background: black;
+        color: white;
+      }
+
+      #ie-warning-content, #loading-content {
+        padding-top: 20px;
+        padding-left: 20px;
+      }
+
+      #ie-warning h1, #loading h1 {
+        margin-top: 0;
+      }
+
+      #ie-warning-content a {
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+    <script type="text/javascript" src="/vendor/bowser.min.js"></script>
+
+    <div id="loading">
+      <div id="ie-warning-content">
+        <h1>Loading...</h1>
+      </div>
+    </div>
+
+    <div id="ie-warning" class="hidden">
+      <div id="ie-warning-content">
+        <h1>Please try a different web browser</h1>
+        <h3>It seems that your web browser (likely Internet Explorer 10 or below) is unable to support this website</h3>
+        <h3>I recommend you to use <a href="https://www.google.com/chrome/browser/desktop/index.html"  target="_blank" rel="noopener noreferrer">Chrome</a> instead (latest version is even better)</h3>
+        <h3>Other popular modern browsers (Firefox, Safari, Opera, Edge, Internet Explorer 11) should also be fine</h3>
+      </div>
+    </div>
+
+    <div id="root" class="hidden transparent"></div>
+
     <script type="text/javascript">
       window.onload = function() {
-        var suffix = "?" + (+ new Date())
-        var head = document.getElementsByTagName("head")[0]
-        var css = document.createElement("link")
-        css.type = "text/css"
-        css.rel = "stylesheet"
-        css.href = "/static/css/main.css" + suffix
-        head.appendChild(css)
-        document.querySelector("link[href^='/static/css/main.']").outerHTML = ""
+        var loading = document.getElementById("loading")
+        var root = document.getElementById("root")
+        var warning = document.getElementById("ie-warning")
 
-        var body = document.getElementsByTagName("body")[0]
-        var js = document.createElement("script")
-        js.type = "text/javascript"
-        js.src = "/static/js/main.js" + suffix
-        body.appendChild(js)
-        document.querySelector("script[src^='/static/js/main.']").outerHTML = ""
+        if (bowser.msie && bowser.version < 11) {
+          loading.className = "hidden"
+          warning.className = ""
+        } else {
+          loading.className = "hidden"
+          root.className = "transparent"
+          setTimeout(function() { root.className = "" }, 0)
+
+          var existingCss =  document.querySelector("link[href^='/static/css/main.']")
+          if (existingCss) {
+            var suffix = "?" + (+ new Date())
+            var head = document.getElementsByTagName("head")[0]
+            var css = document.createElement("link")
+            css.type = "text/css"
+            css.rel = "stylesheet"
+            css.href = "/static/css/main.css" + suffix
+            head.appendChild(css)
+            existingCss.outerHTML = ""
+          }
+
+          var existingJs = document.querySelector("script[src^='/static/js/main.']")
+          if (existingJs) {
+            var body = document.getElementsByTagName("body")[0]
+            var js = document.createElement("script")
+            js.type = "text/javascript"
+            js.src = "/static/js/main.js" + suffix
+            body.appendChild(js)
+            existingJs.outerHTML = ""
+          }
+        }
       }
     </script>
-    <div id="root"></div>
+
   </body>
 </html>

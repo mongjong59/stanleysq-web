@@ -4,8 +4,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "core-js": "^2.5.3",
     "font-awesome": "^4.7.0",
     "gh-pages": "^1.0.0",
+    "objectFitPolyfill": "^2.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-fontawesome": "^1.6.1",

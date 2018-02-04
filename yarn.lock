@@ -1618,7 +1618,7 @@ core-js@^2.4.0, core-js@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.0.tgz#569c050918be6486b3837552028ae0466b717086"
 
-core-js@^2.4.1:
+core-js@^2.4.1, core-js@^2.5.3:
   version "2.5.3"
   resolved "http://registry.npm.taobao.org/core-js/download/core-js-2.5.3.tgz#8acc38345824f16d8365b7c9b4259168e8ed603e"
 
@@ -4509,6 +4509,10 @@ object.omit@^2.0.0:
   dependencies:
     for-own "^0.1.4"
     is-extendable "^0.1.1"
+
+objectFitPolyfill@^2.1.0:
+  version "2.1.0"
+  resolved "http://registry.npm.taobao.org/objectFitPolyfill/download/objectFitPolyfill-2.1.0.tgz#07d86d6941092de69b158b949ac236cf4e9de39f"
 
 obuf@^1.0.0, obuf@^1.1.1:
   version "1.1.1"

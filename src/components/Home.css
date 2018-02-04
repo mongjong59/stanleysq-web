@@ -1,11 +1,21 @@
 .home-wrapper {
   box-sizing: border-box;
-  padding-top: 35px;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   overflow: hidden;
+  background-color: dimgray;
+}
+
+.home-image {
+  background: url("/images/home.png") center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: 1
 }
 
 .home-video {
@@ -13,25 +23,38 @@
   height: 100%;
   object-fit: cover;
   position: absolute;
+  z-index: 2
 }
 
 .overlay {
   background: rgba(0, 0, 0, 0.6);
   position: absolute;
+  z-index: 88;
   width: 100%;
   height: 100%;
 }
 
+.home-avatar {
+  height: 88px;
+  width: 88px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+  border: 5px solid black;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
+}
+
 .home-text-box {
-  width: 640px;
+  line-height: 2.5rem;
+  font-weight: bold;
+  font-style: italic;
+  width: 670px;
   position: absolute;
+  z-index: 99;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin-top: -35px;
   color: white;
-  padding: 10px 30px;
-  border-radius: 3px;
 }
 
 .home-text-box a {
@@ -39,6 +62,7 @@
 }
 
 .home-header {
+  font-style: normal;
   font-size: 3.3rem;
   text-align: center;
   font-weight: 300;
